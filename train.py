@@ -55,7 +55,7 @@ model.summary()
 tensorboard = TensorBoard(log_dir='./logs', histogram_freq=0,
                           write_graph=True, write_images=False)
 
-filepath="weights-improvement-{epoch:02d}-{val_acc:.2f}.hdf5"
+filepath="models/weights-improvement-{epoch:02d}-{val_acc:.2f}.hdf5"
 
 checkpoint = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
 
