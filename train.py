@@ -3,6 +3,7 @@ import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, LSTM
 from tensorflow.keras.layers import BatchNormalization
+from tensorflow.keras.callbacks import TensorBoard
 
 mnist = tf.keras.datasets.mnist
 (x_train, y_train),(x_test, y_test) = mnist.load_data()
@@ -32,6 +33,9 @@ model.compile(loss='sparse_categorical_crossentropy', optimizer=opt, metrics=['a
 
 model.summary()
 
-model.fit(x_train, y_train, epochs=3, validation_data=(x_test,y_test), shuffle=True)
+tensorboard = TensorBoard(log_dir='./logs', histogram_freq=0,
+                          write_graph=True, write_images=False)
+
+model.fit(x_train, y_train, epochs=3, validation_data=(x_test,y_test), shuffle=True, callbacks=[tensorboard])
 
 model.save('models/model'+ str(time.ctime(int(time.time()))).replace(' ','_') +'.h5')
