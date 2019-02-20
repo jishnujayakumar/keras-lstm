@@ -11,7 +11,7 @@ mkdir -p logs models
 ```
 #### Train 
 ```
-python train.py --lr 1e-3 --decay 1e-5 --vs 0.2 --bs 10 --epochs 100 --shuffle True
+python train.py --lr 1e-3 --decay 1e-5 --vs 0.2 --bs 128 --epochs 100 --shuffle True
 ```
 
 #### To use Tensorboard 
