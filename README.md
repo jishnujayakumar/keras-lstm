@@ -3,6 +3,8 @@ This is a sample LSTM implementation in Keras
 
 #### Setup
 ```
+git clone https://github.com/jishnujayakumar/keras-lstm
+chmod -R 777 keras-lstm && cd keras-lstm
 pip install -r requirements.txt
 mkdir -p logs models
 ```
